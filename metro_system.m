@@ -17,36 +17,36 @@ interchange_station = {'Al-Shohadaa', 'Anwar Sadat'};
 
 
 tries= 1; % predefined for the first try
-max_tries = 3;
-while true
-
+max_tries = 5;
+clc
+while tries<=3
+    
     %user input
     initial_station = input("Enter the initial station: ");
     final_station = input("Enter the final station: ");
 
+
     %check inputs
     if are_real_inputs(initial_station,final_station,Line1,Line2)
-        fprintf("\ncorrect inputs!! The output is\n========================\n")
+        fprintf("\ncorrect inputs!! The output is\n====================================\n")
         [roadmap,stations_number, journey_time] = get_roadmap(Line1,Line2,initial_station,final_station,interchange_station);
         display_method(roadmap,stations_number, journey_time)
         break
     else
-        fprintf("sorry the inputs not found, remind [%d] chances\n", max_tries-tries);
-        tries = tries+1;
-    end
-
-    if tries > 3
-        pause(60);
-        fprintf("now you can try again")
-    end
-    if tries > 5
-        fprintf("you consumed all tries")
-        break;
+        tries = tries + 1;
+        if tries <= 3
+            timeout = 10;
+             for remindtime = timeout:-1:0
+                 fprintf("you can try again after %02d sec",remindtime)
+                 pause(1)
+                 fprintf(repmat('\b',1,30))
+             end
+             fprintf("\n\nYou can try again now\n")
+        elseif tries>3
+            fprintf("\nYou Consumed all the chances.. try in another time")
+        end
     end
 end
-
-
-
 
 % disp(roadmap)
 % disp(stations_number)
