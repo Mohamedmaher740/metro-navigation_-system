@@ -1,0 +1,1 @@
+function[found] = searchstr(array,element)
