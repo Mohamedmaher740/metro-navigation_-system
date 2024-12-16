@@ -36,3 +36,59 @@ r = {'Cairo University'	'Al-Behoth'	'El Dokki'	'Opera'	'Anwar Sadat'	'Anwar Sada
 s =7;
 j = 21;
  display_method(r,s,j)
+
+ clc
+timeout = 10;
+ fprintf("you consumed your chances. you can try again after %d sec\n",timeout)
+ for remindtime = timeout:-1:0
+     fprintf(" the remaining time is : %d sec",remindtime)
+     pause(1)
+     fprintf(repmat('\b',1,30))
+     % clc
+ end
+ fprintf("\n\nYou can try again now\n")
+
+
+ timeout = 10; % المهلة الزمنية
+
+fprintf('you consumed your chances. you can try again after %d sec\n', timeout);
+
+for remindtime = timeout:-1:1
+    fprintf('\b'); % تحريك المؤشر للخلف (اختياري إذا كان متاحًا)
+    fprintf(repmat(' ', 1, 50)); % طباعة مسافات لمسح النص السابق
+    fprintf('the remaining time is : %d sec', remindtime); % إعادة الكتابة من البداية
+    pause(1);
+end
+
+fprintf('\n\nYou can try again now\n');
+
+
+%# Generate the data
+Measurement1 = {[0.33 0.23 0.34 -32.32]; [-132.3 32.1 32.23 -320.32]};
+Measurement2 = {433.2; 3.2};
+TextStuff = {'The cat who ate the rat'; 'The dog who ate the cat'};
+s = cell2struct([Measurement1, Measurement2, TextStuff], ...
+    {'Measurement1', 'Measurement2', 'TextStuff'}, 2); 
+
+str_format = @(tag, value)sprintf('%s:%s', tag, value);
+
+%# Iterate over the data and print it on the same figure
+figure
+for i = 1:length(s)
+
+    %# Clear the figure
+    clf, set(gcf, 'color', 'white'), axis off
+
+    %# Output the data
+    text(0, 1, str_format('mohamed maher'));
+    text(0, 0.9, str_format('youssef hesham'));
+    text(0, 0.8, str_format('mahmoud elsayed'));
+
+    %# Wait until the uses press a key
+    % pause
+end
+
+
+
+
+
