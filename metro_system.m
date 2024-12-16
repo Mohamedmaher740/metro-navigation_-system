@@ -17,7 +17,6 @@ interchange_station = {'Al-Shohadaa', 'Anwar Sadat'};
 
 
 tries= 1; % predefined for the first try
-max_tries = 5;
 clc
 while tries<=3
     
