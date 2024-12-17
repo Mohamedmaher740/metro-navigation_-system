@@ -1,6 +1,5 @@
 function[] = display_method(roadmap, stations_number, journey_time)
 
-
 n = length(roadmap);
 i = 1;
 transitions = 0;
@@ -24,7 +23,7 @@ fprintf("\nThe Time you will need : %d min\n", journey_time);
 
 if stations_number <= 9
     fprintf("the price of the ticket : %5.2f LE\n", 8);
-elseif stations_number >= 10 && stations_number <= 23
+elseif stations_number >= 10 && stations_number <= 16
     fprintf("the price of the ticket : %5.2f LE\n", 10);
 elseif stations_number >= 17 && stations_number <= 23
     fprintf("the price of the ticket : %5.2f LE\n", 15);
